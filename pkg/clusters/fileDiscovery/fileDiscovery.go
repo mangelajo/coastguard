@@ -42,9 +42,9 @@ func Start(callback federate.ClusterEventHandler) {
 
         restClient, _, err := loadConfig(KubeConfig, context);
         if err != nil {
-            klog.Fatal("Error loading config for context %s: %s",context, err)
+            klog.Fatalf("Error loading config for context %s: %s",context, err)
         }
-        klog.Info("Discovered cluster %s from parameters")
+        klog.Infof("Discovered cluster %s from parameters", context)
         callback.OnAdd(context, restClient)
     }
 }
